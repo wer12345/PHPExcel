@@ -91,6 +91,29 @@ $excel->getActiveSheet()->getStyle('B5:C45')->applyFromArray(
    )
 );
 
+$excel->getActiveSheet()->getStyle('E5:F45')->applyFromArray(
+   array(
+      'borders' => array(
+         'outline' => array(
+            'style' => PHPExcel_Style_Border::BORDER_THIN,
+            'color' => array('rgb' => 'a6a6a6')
+         ),
+         'vertical' => array(
+            'style' => PHPExcel_Style_Border::BORDER_THIN,
+            'color' => array('rgb' => 'a6a6a6')
+         ),
+         'inside' => array(
+            'style' => PHPExcel_Style_Border::BORDER_THIN,
+            'color' => array('rgb' => 'a6a6a6')
+         )
+      ),
+      'font' => array(
+         'size' => 10,
+         'name' => 'Arial'
+      )
+   )
+);
+
 // Templpate Form Registration
 $excel->setActiveSheetIndex(0)
    ->setCellValue('B2', 'Tanggal Register')
@@ -249,6 +272,9 @@ $excel->getActiveSheet()->getStyle('E4')->applyFromArray(
          'bold' => true,
          'name' => 'Arial',
          'size' => 10
+      ),
+      'alignment' => array(
+         'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER
       )
    )
 );
@@ -296,7 +322,7 @@ $excel->setActiveSheetIndex(0)
    ->setCellValue('E32', '-portfolio:')
    ->setCellValue('E33', '-selfie:')
    ->setCellValue('E34', '-LU:')
-   ->setCellValue('E35', ':');
+   ->setCellValue('E35', '');
 
 // Medsos Tw
 $excel->setActiveSheetIndex(0)
@@ -307,7 +333,7 @@ $excel->setActiveSheetIndex(0)
    ->setCellValue('E40', '-follower:')
    ->setCellValue('E41', '-selfie:')
    ->setCellValue('E42', '-LU:')
-   ->setCellValue('E43', ':');
+   ->setCellValue('E43', '');
 
 // Website
 $excel->setActiveSheetIndex(0)
