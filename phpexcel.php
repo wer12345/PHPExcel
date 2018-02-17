@@ -19,13 +19,17 @@ $excel->setActiveSheetIndex(0)->getColumnDimension('H')->setWidth(20);
 $excel->setActiveSheetIndex(0)->getColumnDimension('I')->setWidth(40);
 
 // cell alignment
-$excel->getActiveSheet()->getStyle('B2:C45')->applyFromArray(
-   array(
-      'alignment' => array(
-         'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER
-      )
-   )
-);
+//$excel->getActiveSheet()->getStyle('B2:C45')->applyFromArray(
+   //array(
+      //'alignment' => array(
+         //'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER,
+         //'hrizontal' => PHPExcel_Style_Alignment::HORIZONTAL_LEFT
+      //)
+   //)
+//);
+
+$excel->getActiveSheet()->getStyle('B2:C45')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+$excel->getActiveSheet()->getStyle('h6:I49')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_TOP);
 
 // Merging 
 $excel->getActiveSheet()->mergeCells('B6:C6');
@@ -37,6 +41,7 @@ $excel->getActiveSheet()->mergeCells('B31:C31');
 $excel->getActiveSheet()->mergeCells('B37:C37');
 $excel->getActiveSheet()->mergeCells('B41:C41');
 $excel->getActiveSheet()->mergeCells('E4:F4');
+$excel->getActiveSheet()->mergeCells('E6:F6');
 $excel->getActiveSheet()->mergeCells('E14:F14');
 $excel->getActiveSheet()->mergeCells('E28:F28');
 $excel->getActiveSheet()->mergeCells('E36:F36');
@@ -49,6 +54,13 @@ $excel->getActiveSheet()->mergeCells('I6:I8');
 $excel->getActiveSheet()->mergeCells('I9:I11');
 $excel->getActiveSheet()->mergeCells('I12:I14');
 $excel->getActiveSheet()->mergeCells('I15:I17');
+$excel->getActiveSheet()->mergeCells('H27:I27');
+$excel->getActiveSheet()->mergeCells('H28:H37');
+$excel->getActiveSheet()->mergeCells('H38:H45');
+$excel->getActiveSheet()->mergeCells('H46:H52');
+$excel->getActiveSheet()->mergeCells('I28:I37');
+$excel->getActiveSheet()->mergeCells('I38:I45');
+$excel->getActiveSheet()->mergeCells('I46:I52');
 
 // cell background color
 $title = array( 
@@ -128,6 +140,29 @@ $excel->getActiveSheet()->getStyle('E5:F45')->applyFromArray(
    )
 );
 
+$excel->getActiveSheet()->getStyle('H6:I17')->applyFromArray(
+   array(
+      'borders' => array(
+         'outline' => array(
+            'style' => PHPExcel_Style_Border::BORDER_THIN,
+            'color' => array('rgb' => 'a6a6a6')
+         ),
+         'vertical' => array(
+            'style' => PHPExcel_Style_Border::BORDER_THIN,
+            'color' => array('rgb' => 'a6a6a6')
+         ),
+         'inside' => array(
+            'style' => PHPExcel_Style_Border::BORDER_THIN,
+            'color' => array('rgb' => 'a6a6a6')
+         )
+      ),
+      'font' => array(
+         'size' => 10,
+         'name' => 'Arial'
+      )
+   )
+);
+
 // Templpate Form Registration
 $excel->setActiveSheetIndex(0)
    ->setCellValue('B2', 'Tanggal Register')
@@ -180,6 +215,54 @@ $excel->getActiveSheet()->getStyle('B3:C3')->applyFromArray(
       'fill' => array(
          'type' => PHPExcel_Style_Fill::FILL_SOLID,
          'color' => array('rgb' => 'b0cb96')
+      ),
+      'font' => array(
+         'bold' => true,
+         'name' => 'Arial',
+         'size' => 10
+      )
+   )
+);
+
+$excel->getActiveSheet()->getStyle('H20:I24')->applyFromArray(
+   array(
+      'borders' => array(
+         'outline' => array(
+            'style' => PHPExcel_Style_Border::BORDER_THIN,
+            'color' => array('rgb' => 'a6a6a6')
+         ),
+         'vertical' => array(
+            'style' => PHPExcel_Style_Border::BORDER_THIN,
+            'color' => array('rgb' => 'a6a6a6')
+         ),
+         'inside' => array(
+            'style' => PHPExcel_Style_Border::BORDER_THIN,
+            'color' => array('rgb' => 'a6a6a6')
+         )
+      ),
+      'font' => array(
+         'bold' => true,
+         'name' => 'Arial',
+         'size' => 10
+      )
+   )
+);
+
+$excel->getActiveSheet()->getStyle('H27:I52')->applyFromArray(
+   array(
+      'borders' => array(
+         'outline' => array(
+            'style' => PHPExcel_Style_Border::BORDER_THIN,
+            'color' => array('rgb' => 'a6a6a6')
+         ),
+         'vertical' => array(
+            'style' => PHPExcel_Style_Border::BORDER_THIN,
+            'color' => array('rgb' => 'a6a6a6')
+         ),
+         'inside' => array(
+            'style' => PHPExcel_Style_Border::BORDER_THIN,
+            'color' => array('rgb' => 'a6a6a6')
+         )
       ),
       'font' => array(
          'bold' => true,
@@ -359,6 +442,25 @@ $excel->setActiveSheetIndex(0)
 $excel->setActiveSheetIndex(0)
    ->setCellValue('H5', 'NOTE')
    ->setCellValue('I5', 'KETERANGAN');
+
+$excel->setActiveSheetIndex(0)
+   ->setCellValue('H6', 'KEKURANGAN DATA:')
+   ->setCellValue('H9', 'KESIMPULAN CCO:')
+   ->setCellValue('H12', 'KESIMPULAN SPV:')
+   ->setCellValue('H15', 'KESIMPULAN CCO:');
+
+$excel->setActiveSheetIndex(0)
+   ->setCellValue('H20', 'LEVEL CCO')
+   ->setCellValue('H21', 'LEVEL SPV:')
+   ->setCellValue('H22', 'LEVEL GM')
+   ->setCellValue('H23', 'LEVEL AKHIR')
+   ->setCellValue('H24', 'STATUS');
+
+$excel->setActiveSheetIndex(0)
+   ->setCellValue('H27', 'UPLOAD FOTO & DOKUMEN')
+   ->setCellValue('H28', 'Foto selfie terbaru')
+   ->setCellValue('H38', 'KTP (Wajib)')
+   ->setCellValue('H46', 'Dokumen berharga lain');
 
 // Redirect to browser Download
 //
