@@ -4,15 +4,6 @@ require_once './Classes/PHPExcel.php';
 // Create PHPExcel object
 $excel = new PHPExcel();
 
-$excel->getActiveSheet()->getDefaultStyle()->applyFromArray(
-   array(
-      'borders' => array(
-         'allborders' => array(
-            'style' => PHPExcel_Style_Border::BORDER_NONE
-         )
-      )
-   )
-);
 // Set Column Width
 $excel->setActiveSheetIndex(0)->getColumnDimension('A')->setWidth(2);
 $excel->setActiveSheetIndex(0)->getColumnDimension('B')->setWidth(35);
@@ -40,6 +31,10 @@ $excel->getActiveSheet()->mergeCells('B31:C31');
 $excel->getActiveSheet()->mergeCells('B37:C37');
 $excel->getActiveSheet()->mergeCells('B41:C41');
 $excel->getActiveSheet()->mergeCells('E4:F4');
+$excel->getActiveSheet()->mergeCells('E14:F14');
+$excel->getActiveSheet()->mergeCells('E28:F28');
+$excel->getActiveSheet()->mergeCells('E36:F36');
+$excel->getActiveSheet()->mergeCells('E44:F44');
 
 // cell background color
 $title = array( 
@@ -62,6 +57,11 @@ $excel->getActiveSheet()->getStyle('B26')->applyFromArray($title);
 $excel->getActiveSheet()->getStyle('B31')->applyFromArray($title);
 $excel->getActiveSheet()->getStyle('B37')->applyFromArray($title);
 $excel->getActiveSheet()->getStyle('B41')->applyFromArray($title);
+$excel->getActiveSheet()->getStyle('E4')->applyFromArray($title);
+$excel->getActiveSheet()->getStyle('E14')->applyFromArray($title);
+$excel->getActiveSheet()->getStyle('E28')->applyFromArray($title);
+$excel->getActiveSheet()->getStyle('E36')->applyFromArray($title);
+$excel->getActiveSheet()->getStyle('E44')->applyFromArray($title);
 
 
 // give border
@@ -267,7 +267,7 @@ $excel->setActiveSheetIndex(0)
    ->setCellValue('E12', '-Apakah pemilik sebuah vendor:')
    ->setCellValue('E13', '');
 
-// Umum
+// Medsos Fb
 $excel->setActiveSheetIndex(0)
    ->setCellValue('E14', '## MEDSOS FB')
    ->setCellValue('E15', '-dp muka:')
@@ -284,52 +284,33 @@ $excel->setActiveSheetIndex(0)
    ->setCellValue('E26', '-lainnya:')
    ->setCellValue('E27', '');
 
-//// Rencana Sewa
-//$excel->setActiveSheetIndex(0)
-   //->setCellValue('B17', 'RENCANA SEWA')
-   //->setCellValue('B18', 'Jenis alat')
-   //->setCellValue('B19', 'Tanggal Register')
-   //->setCellValue('B20', 'Acara')
-   //->setCellValue('B21', 'Cabang Zenon');
+// Medsos Ig
+$excel->setActiveSheetIndex(0)
+   ->setCellValue('E28', '## MEDSOS IG')
+   ->setCellValue('E29', '-dp muka:')
+   ->setCellValue('E30', '-post:')
+   ->setCellValue('E31', '-follower:')
+   ->setCellValue('E32', '-portfolio:')
+   ->setCellValue('E33', '-selfie:')
+   ->setCellValue('E34', '-LU:')
+   ->setCellValue('E35', ':');
 
-//// Data Penunjang
-//$excel->setActiveSheetIndex(0)
-   //->setCellValue('B22', 'DATA PENUNJANG')
-   //->setCellValue('B23', 'Mengetahui zenon dari mana?')
-   //->setCellValue('B24', 'Sebelumnya sewa dimana?')
-   //->setCellValue('B25', 'Atas nama siapa?');
+// Medsos Tw
+$excel->setActiveSheetIndex(0)
+   ->setCellValue('E36', '## MEDSOS TW')
+   ->setCellValue('E37', '-dp muka:')
+   ->setCellValue('E38', '-join:')
+   ->setCellValue('E39', '-post:')
+   ->setCellValue('E40', '-follower:')
+   ->setCellValue('E41', '-selfie:')
+   ->setCellValue('E42', '-LU:')
+   ->setCellValue('E43', ':');
 
-//// Keluarga yang Serumah
-//$excel->setActiveSheetIndex(0)
-   //->setCellValue('B26', 'KELUARGA YG SERUMAH')
-   //->setCellValue('B27', 'Atas nama siapa?')
-   //->setCellValue('B28', 'Hubungan dengan penyewa')
-   //->setCellValue('B29', 'Telepon (HP)')
-   //->setCellValue('B30', 'Alamat');
-
-//// Pekerjaan
-//$excel->setActiveSheetIndex(0)
-   //->setCellValue('B31', 'PEKERJAAN')
-   //->setCellValue('B32', 'Pekerjaan sekarang')
-   //->setCellValue('B33', 'Nama tempat kerja')
-   //->setCellValue('B34', 'Jabatan kerja')
-   //->setCellValue('B35', 'Alamat tempat kerja')
-   //->setCellValue('B36', 'Telpon tempat kerja');
-
-//// Alamat tinggal sekarang
-//$excel->setActiveSheetIndex(0)
-   //->setCellValue('B37', 'ALAMAT TINGGAL SEKARANG')
-   //->setCellValue('B38', 'Status alamat tinggal sekarang')
-   //->setCellValue('B39', 'Nama pemilik')
-   //->setCellValue('B40', 'Telpon pemilik');
-
-//// Pendidikan
-//$excel->setActiveSheetIndex(0)
-   //->setCellValue('B41', 'PENDIDIKAN')
-   //->setCellValue('B42', 'Pendidikan sedang berjalan/terakhir')
-   //->setCellValue('B43', 'Nama lembaga pendidikan')
-   //->setCellValue('B44', 'Alamat lembaga pendidikan')
-   //->setCellValue('B45', 'Info tambahan (angkatan masuk)');
+// Website
+$excel->setActiveSheetIndex(0)
+   ->setCellValue('E36', '## WEBSITE')
+   ->setCellValue('E37', 'website pribadi/vendor:')
+   ->setCellValue('E38', 'whois:');
 
 // Redirect to browser Download
 //
