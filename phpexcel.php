@@ -1,5 +1,6 @@
 <?php
 require_once './Classes/PHPExcel.php';
+require_once './function.php';
 
 // Create PHPExcel object
 $excel = new PHPExcel();
@@ -7,25 +8,42 @@ $excel = new PHPExcel();
 // remove gridlines
 $excel->getActiveSheet()->setShowGridlines(false);
 
+cellStyle($excel, 'B6', $title);
+cellStyle($excel, 'B12', $title);
+cellStyle($excel, 'B17', $title);
+cellStyle($excel, 'B22', $title);
+cellStyle($excel, 'B26', $title);
+cellStyle($excel, 'B31', $title);
+cellStyle($excel, 'B37', $title);
+cellStyle($excel, 'B41', $title);
+cellStyle($excel, 'E4', $title);
+cellStyle($excel, 'E5:F5', $title);
+cellStyle($excel, 'E6:F6', $title);
+cellStyle($excel, 'E14', $title);
+cellStyle($excel, 'E28', $title);
+cellStyle($excel, 'E36', $title);
+cellStyle($excel, 'E44', $title);
+cellStyle($excel, 'H5:I5', $title);
+
 // Set Column Width
-$excel->setActiveSheetIndex(0)->getColumnDimension('A')->setWidth(2);
-$excel->setActiveSheetIndex(0)->getColumnDimension('B')->setWidth(35);
-$excel->setActiveSheetIndex(0)->getColumnDimension('C')->setWidth(35);
-$excel->setActiveSheetIndex(0)->getColumnDimension('D')->setWidth(4);
-$excel->setActiveSheetIndex(0)->getColumnDimension('E')->setWidth(40);
-$excel->setActiveSheetIndex(0)->getColumnDimension('F')->setWidth(40);
-$excel->setActiveSheetIndex(0)->getColumnDimension('G')->setWidth(4);
-$excel->setActiveSheetIndex(0)->getColumnDimension('H')->setWidth(20);
-$excel->setActiveSheetIndex(0)->getColumnDimension('I')->setWidth(40);
+cellWidth($excel, 'A', 2);
+cellWidth($excel, 'B', 35);
+cellWidth($excel, 'C', 35);
+cellWidth($excel, 'D', 4);
+cellWidth($excel, 'E', 40);
+cellWidth($excel, 'F', 40);
+cellWidth($excel, 'G', 4);
+cellWidth($excel, 'H', 20);
+cellWidth($excel, 'I', 40);
 
 // cell alignment
 //$excel->getActiveSheet()->getStyle('B2:C45')->applyFromArray(
-   //array(
-      //'alignment' => array(
-         //'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER,
-         //'hrizontal' => PHPExcel_Style_Alignment::HORIZONTAL_LEFT
-      //)
-   //)
+//array(
+//'alignment' => array(
+//'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER,
+//'hrizontal' => PHPExcel_Style_Alignment::HORIZONTAL_LEFT
+//)
+//)
 //);
 
 $excel->getActiveSheet()->getStyle('B2:C45')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
@@ -62,38 +80,29 @@ $excel->getActiveSheet()->mergeCells('I28:I37');
 $excel->getActiveSheet()->mergeCells('I38:I45');
 $excel->getActiveSheet()->mergeCells('I46:I52');
 
-// cell background color
-$title = array( 
-   'fill' => array( 
-      'type' => PHPExcel_Style_Fill::FILL_SOLID, 
-      'color' => array('rgb' => 'f0f0f0')
-   ), 
-   'font' => array( 
-      'bold' => true, 
-      'size' => 10, 
-      'name' => 'Arial'
+
+// give border
+
+$boderStyle = array(
+   'borders' => array(
+      'allborders' => array(
+         'style' => PHPExcel_Style_Border::BORDER_THIN,
+         'color' => array('rgb' => 'a6a6a6')
+      )
    )
 );
 
-$excel->getActiveSheet()->getStyle('B6')->applyFromArray($title);
-$excel->getActiveSheet()->getStyle('B12')->applyFromArray($title);
-$excel->getActiveSheet()->getStyle('B17')->applyFromArray($title);
-$excel->getActiveSheet()->getStyle('B22')->applyFromArray($title);
-$excel->getActiveSheet()->getStyle('B26')->applyFromArray($title);
-$excel->getActiveSheet()->getStyle('B31')->applyFromArray($title);
-$excel->getActiveSheet()->getStyle('B37')->applyFromArray($title);
-$excel->getActiveSheet()->getStyle('B41')->applyFromArray($title);
-$excel->getActiveSheet()->getStyle('E4')->applyFromArray($title);
-$excel->getActiveSheet()->getStyle('E5:F5')->applyFromArray($title);
-$excel->getActiveSheet()->getStyle('E6:F6')->applyFromArray($title);
-$excel->getActiveSheet()->getStyle('E14')->applyFromArray($title);
-$excel->getActiveSheet()->getStyle('E28')->applyFromArray($title);
-$excel->getActiveSheet()->getStyle('E36')->applyFromArray($title);
-$excel->getActiveSheet()->getStyle('E44')->applyFromArray($title);
-$excel->getActiveSheet()->getStyle('H5:I5')->applyFromArray($title);
+$fontStyle = array(
+   'font' => array(
+      'size' => 10,
+      'name' => 'Arial'
 
+   )
+);
 
-// give border
+$excel->getActiveSheet()->getStyle('B5:C45')->applyFromArray($boderStyle);
+$excel->getActiveSheet()->getStyle('H20:I24')->applyFromArray($boderStyle);
+
 $excel->getActiveSheet()->getStyle('B5:C45')->applyFromArray(
    array(
       'borders' => array(
@@ -224,53 +233,56 @@ $excel->getActiveSheet()->getStyle('B3:C3')->applyFromArray(
    )
 );
 
-$excel->getActiveSheet()->getStyle('H20:I24')->applyFromArray(
-   array(
-      'borders' => array(
-         'outline' => array(
-            'style' => PHPExcel_Style_Border::BORDER_THIN,
-            'color' => array('rgb' => 'a6a6a6')
-         ),
-         'vertical' => array(
-            'style' => PHPExcel_Style_Border::BORDER_THIN,
-            'color' => array('rgb' => 'a6a6a6')
-         ),
-         'inside' => array(
-            'style' => PHPExcel_Style_Border::BORDER_THIN,
-            'color' => array('rgb' => 'a6a6a6')
-         )
-      ),
-      'font' => array(
-         'bold' => true,
-         'name' => 'Arial',
-         'size' => 10
-      )
-   )
-);
+//$excel->getActiveSheet()->getStyle('H20:I24')->applyFromArray(
+//array(
+//'borders' => array(
+//'outline' => array(
+//'style' => PHPExcel_Style_Border::BORDER_THIN,
+//'color' => array('rgb' => 'a6a6a6')
+//),
+//'vertical' => array(
+//'style' => PHPExcel_Style_Border::BORDER_THIN,
+//'color' => array('rgb' => 'a6a6a6')
+//),
+//'inside' => array(
+//'style' => PHPExcel_Style_Border::BORDER_THIN,
+//'color' => array('rgb' => 'a6a6a6')
+//)
+//),
+//'font' => array(
+//'bold' => true,
+//'name' => 'Arial',
+//'size' => 10
+//)
+//)
+//);
 
-$excel->getActiveSheet()->getStyle('H27:I52')->applyFromArray(
-   array(
-      'borders' => array(
-         'outline' => array(
-            'style' => PHPExcel_Style_Border::BORDER_THIN,
-            'color' => array('rgb' => 'a6a6a6')
-         ),
-         'vertical' => array(
-            'style' => PHPExcel_Style_Border::BORDER_THIN,
-            'color' => array('rgb' => 'a6a6a6')
-         ),
-         'inside' => array(
-            'style' => PHPExcel_Style_Border::BORDER_THIN,
-            'color' => array('rgb' => 'a6a6a6')
-         )
-      ),
-      'font' => array(
-         'bold' => true,
-         'name' => 'Arial',
-         'size' => 10
-      )
-   )
-);
+//$excel->getActiveSheet()->getStyle('H27:I52')->applyFromArray(
+//array(
+//'borders' => array(
+//'outline' => array(
+//'style' => PHPExcel_Style_Border::BORDER_THIN,
+//'color' => array('rgb' => 'a6a6a6')
+//),
+//'vertical' => array(
+//'style' => PHPExcel_Style_Border::BORDER_THIN,
+//'color' => array('rgb' => 'a6a6a6')
+//),
+//'inside' => array(
+//'style' => PHPExcel_Style_Border::BORDER_THIN,
+//'color' => array('rgb' => 'a6a6a6')
+//)
+//),
+//'font' => array(
+//'bold' => true,
+//'name' => 'Arial',
+//'size' => 10
+//)
+//)
+//);
+
+//$excel->getActiveSheet()->getStyle('H27:I52')->getBorders()->getAllBorders()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN)->getColor()->setRGB('a6a6a6');
+//$excel->getActiveSheet()->getStyle('H20:I24')->getBorders()->getAllBorders()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN)->getColor()->setRGB('a6a6a6');
 
 // Header Data
 $excel->setActiveSheetIndex(0)
