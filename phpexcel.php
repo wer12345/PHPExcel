@@ -4,6 +4,9 @@ require_once './Classes/PHPExcel.php';
 // Create PHPExcel object
 $excel = new PHPExcel();
 
+// remove gridlines
+$excel->getActiveSheet()->setShowGridlines(false);
+
 // Set Column Width
 $excel->setActiveSheetIndex(0)->getColumnDimension('A')->setWidth(2);
 $excel->setActiveSheetIndex(0)->getColumnDimension('B')->setWidth(35);
