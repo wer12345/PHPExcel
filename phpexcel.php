@@ -17,6 +17,9 @@ $excel->getActiveSheet()->getDefaultStyle()->applyFromArray(
 $excel->setActiveSheetIndex(0)->getColumnDimension('A')->setWidth(2);
 $excel->setActiveSheetIndex(0)->getColumnDimension('B')->setWidth(35);
 $excel->setActiveSheetIndex(0)->getColumnDimension('C')->setWidth(35);
+$excel->setActiveSheetIndex(0)->getColumnDimension('D')->setWidth(4);
+$excel->setActiveSheetIndex(0)->getColumnDimension('E')->setWidth(40);
+$excel->setActiveSheetIndex(0)->getColumnDimension('F')->setWidth(40);
 
 // cell alignment
 $excel->getActiveSheet()->getStyle('B2:C45')->applyFromArray(
@@ -253,22 +256,33 @@ $excel->setActiveSheetIndex(0)
    ->setCellValue('F5', 'CONS (-)');
 
 
-//// Data Pribadi
-//$excel->setActiveSheetIndex(0)
-   //->setCellValue('B6', 'DATA PRIBADI')
-   //->setCellValue('B7', 'Nama lengkap')
-   //->setCellValue('B8', 'Nama panggilan')
-   //->setCellValue('B9', 'Telepon-1')
-   //->setCellValue('B10', 'Telepon-2')
-   //->setCellValue('B11', 'Email');
+// Umum
+$excel->setActiveSheetIndex(0)
+   ->setCellValue('E6', '## UMUM')
+   ->setCellValue('E7', '-Cek daftar blacklist:')
+   ->setCellValue('E8', '-Cek validasi NIK KTP (Via App dan web KPU):')
+   ->setCellValue('E9', '-Cek keamanan data (semua dokumen):')
+   ->setCellValue('E10', '-Tracking nama:')
+   ->setCellValue('E11', '-Tracking HP:')
+   ->setCellValue('E12', '-Apakah pemilik sebuah vendor:')
+   ->setCellValue('E13', '');
 
-//// Media Sosial
-//$excel->setActiveSheetIndex(0)
-   //->setCellValue('B12', 'MEDIA SOSIAL')
-   //->setCellValue('B13', 'Facebook')
-   //->setCellValue('B14', 'Email facebook')
-   //->setCellValue('B15', 'Instagram')
-   //->setCellValue('B16', 'Twitter');
+// Umum
+$excel->setActiveSheetIndex(0)
+   ->setCellValue('E14', '## MEDSOS FB')
+   ->setCellValue('E15', '-dp muka:')
+   ->setCellValue('E16', '-foto selfie:')
+   ->setCellValue('E17', '-awal bikin:')
+   ->setCellValue('E18', '-LU:')
+   ->setCellValue('E19', '-Interval post:')
+   ->setCellValue('E20', '-valid bday:')
+   ->setCellValue('E21', '-valid kerjaan:')
+   ->setCellValue('E22', '-valid sekolah:')
+   ->setCellValue('E23', '-valid hub, suami istri:')
+   ->setCellValue('E24', '-portfolio:')
+   ->setCellValue('E25', '-mf:')
+   ->setCellValue('E26', '-lainnya:')
+   ->setCellValue('E27', '');
 
 //// Rencana Sewa
 //$excel->setActiveSheetIndex(0)
