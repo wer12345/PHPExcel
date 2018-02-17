@@ -1,6 +1,7 @@
 <?php
 require_once './Classes/PHPExcel.php';
 require_once './function.php';
+require_once './excel_template.php';
 
 // Create PHPExcel object
 $excel = new PHPExcel();
