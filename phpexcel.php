@@ -14,6 +14,9 @@ $excel->setActiveSheetIndex(0)->getColumnDimension('C')->setWidth(35);
 $excel->setActiveSheetIndex(0)->getColumnDimension('D')->setWidth(4);
 $excel->setActiveSheetIndex(0)->getColumnDimension('E')->setWidth(40);
 $excel->setActiveSheetIndex(0)->getColumnDimension('F')->setWidth(40);
+$excel->setActiveSheetIndex(0)->getColumnDimension('G')->setWidth(4);
+$excel->setActiveSheetIndex(0)->getColumnDimension('H')->setWidth(20);
+$excel->setActiveSheetIndex(0)->getColumnDimension('I')->setWidth(40);
 
 // cell alignment
 $excel->getActiveSheet()->getStyle('B2:C45')->applyFromArray(
@@ -38,6 +41,14 @@ $excel->getActiveSheet()->mergeCells('E14:F14');
 $excel->getActiveSheet()->mergeCells('E28:F28');
 $excel->getActiveSheet()->mergeCells('E36:F36');
 $excel->getActiveSheet()->mergeCells('E44:F44');
+$excel->getActiveSheet()->mergeCells('H6:H8');
+$excel->getActiveSheet()->mergeCells('H9:H11');
+$excel->getActiveSheet()->mergeCells('H12:H14');
+$excel->getActiveSheet()->mergeCells('H15:H17');
+$excel->getActiveSheet()->mergeCells('I6:I8');
+$excel->getActiveSheet()->mergeCells('I9:I11');
+$excel->getActiveSheet()->mergeCells('I12:I14');
+$excel->getActiveSheet()->mergeCells('I15:I17');
 
 // cell background color
 $title = array( 
@@ -61,10 +72,13 @@ $excel->getActiveSheet()->getStyle('B31')->applyFromArray($title);
 $excel->getActiveSheet()->getStyle('B37')->applyFromArray($title);
 $excel->getActiveSheet()->getStyle('B41')->applyFromArray($title);
 $excel->getActiveSheet()->getStyle('E4')->applyFromArray($title);
+$excel->getActiveSheet()->getStyle('E5:F5')->applyFromArray($title);
+$excel->getActiveSheet()->getStyle('E6:F6')->applyFromArray($title);
 $excel->getActiveSheet()->getStyle('E14')->applyFromArray($title);
 $excel->getActiveSheet()->getStyle('E28')->applyFromArray($title);
 $excel->getActiveSheet()->getStyle('E36')->applyFromArray($title);
 $excel->getActiveSheet()->getStyle('E44')->applyFromArray($title);
+$excel->getActiveSheet()->getStyle('H5:I5')->applyFromArray($title);
 
 
 // give border
@@ -340,6 +354,11 @@ $excel->setActiveSheetIndex(0)
    ->setCellValue('E36', '## WEBSITE')
    ->setCellValue('E37', 'website pribadi/vendor:')
    ->setCellValue('E38', 'whois:');
+
+// Header Note
+$excel->setActiveSheetIndex(0)
+   ->setCellValue('H5', 'NOTE')
+   ->setCellValue('I5', 'KETERANGAN');
 
 // Redirect to browser Download
 //
