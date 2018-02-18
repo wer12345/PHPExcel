@@ -12,6 +12,19 @@ function cellWidth($excel, $column, $width)
    $excel->setActiveSheetIndex(0)->getColumnDimension($column)->setWidth($width);
 }
 
+// fungsi add gambar
+function cellImg($img = '')
+{
+   global $excel;
+
+   $Img = new PHPExcel_Worksheet_Drawing();
+
+   $Img->setPath('./photo_2018-02-17_08-49-52.jpg');
+   $Img->setHeight(150);
+   $Img->setCoordinates('I28');
+   $Img->setWorksheet($excel->getActiveSheet());
+}
+
 // cell input data
 function data($excel, $data = '')
 {
@@ -143,9 +156,11 @@ function data($excel, $data = '')
 
    $excel->setActiveSheetIndex(0)
       ->setCellValue('I27', 'UPLOAD FOTO & DOKUMEN')
-      ->setCellValue('I28', 'Foto selfie terbaru')
+      //->setCellValue('I28', 'Foto selfie terbaru')
       ->setCellValue('I38', 'KTP (Wajib)')
       ->setCellValue('I46', 'Dokumen berharga lain');
+
+   cellImg();
 }
 
 
